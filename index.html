@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria Completa de Saúde e Performance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .services {
+            display: grid;
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .service-card h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .price-old {
+            font-size: 1.5em;
+            text-decoration: line-through;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .price-breakdown {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        .price-new {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .economy {
+            background: #ffd700;
+            color: #333;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .payment-methods {
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            margin: 30px auto;
+            display: block;
+            text-align: center;
+            max-width: 400px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        .cta-section {
+            text-align: center;
+            background: #f8f9ff;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .urgency {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9ff;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .price-new {
+                font-size: 2.5em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 CONSULTORIA COMPLETA</h1>
+            <p>Saúde e Performance Integrada</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">✨ Transforme seu Corpo e sua Saúde</h2>
+                <p style="font-size: 1.1em; color: #666; margin-bottom: 30px;">
+                    Acompanhamento profissional integrado com resultados reais e sustentáveis. 
+                    Tudo que você precisa em um único lugar!
+                </p>
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 15px; text-align: center; font-size: 1.2em; font-weight: bold; margin-bottom: 30px;">
+                    ⏱️ PLANO TRIMESTRAL - 90 DIAS DE ACOMPANHAMENTO<br>
+                    <span style="font-size: 0.9em; font-weight: normal; opacity: 0.95;">📱 Suporte via WhatsApp 24/7 Comigo</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">📋 O que está Incluso</h2>
+                <div class="services">
+                    <div class="service-card">
+                        <h3>💪 Planos de Treinamentos Personalizados</h3>
+                        <ul>
+                            <li>Fichas via app com vídeos ilustrativos</li>
+                            <li>Programas preventivos e de manutenção</li>
+                            <li>Acompanhamento contínuo da sua evolução</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>🥗 Nutrição Estratégica</h3>
+                        <ul>
+                            <li>Plano alimentar individualizado</li>
+                            <li>Indicação da melhor suplementação para você</li>
+                            <li>Ajustes conforme seus objetivos</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>🩺 Avaliação Clínica Completa</h3>
+                        <ul>
+                            <li>Leitura detalhada dos seus exames sanguíneos</li>
+                            <li>Indicação de remédios manipulados com os melhores preços nas melhores farmácias do Brasil</li>
+                            <li>Compras online - Zero comissão</li>
+                            <li>Relatório de bioimpedância com 18 módulos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-section">
+                <h2>💰 Investimento na Sua Saúde</h2>
+                <div class="price-breakdown">
+                    <span style="text-decoration: line-through;">Nutricionista: R$ 800,00</span><br>
+                    <span style="text-decoration: line-through;">Endocrinologista: R$ 1.200,00</span><br>
+                    Personal Trainer: R$ 1.200,00
+                </div>
+                <div class="price-new">R$ 1.200,00</div>
+                <div class="payment-methods">💳 PIX ou Cartão de Crédito</div>
+                <div class="economy">✨ ECONOMIZE R$ 2.000,00!</div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🎁 Diferenciais</h2>
+                <div class="benefits">
+                    <div class="benefit-card">
+                        <div class="icon">📱</div>
+                        <h3>Suporte 24/7</h3>
+                        <p>WhatsApp direto comigo durante 90 dias</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">🎯</div>
+                        <h3>Atendimento Integrado</h3>
+                        <p>Tudo em um só lugar</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">👨‍⚕️</div>
+                        <h3>Profissional Qualificado</h3>
+                        <p>Meu acompanhamento completo</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">📊</div>
+                        <h3>Resultados Reais</h3>
+                        <p>Sustentáveis e duradouros</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">🔬</div>
+                        <h3>Ciência + Tecnologia</h3>
+                        <p>O melhor dos dois mundos</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">⏱️</div>
+                        <h3>Plano Trimestral</h3>
+                        <p>90 dias de transformação</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <div class="urgency">
+                    ⚠️ VAGAS LIMITADAS - Garantia de atendimento de qualidade!
+                </div>
+                <h2 style="color: #667eea; margin: 20px 0;">📲 Garanta Sua Vaga Agora!</h2>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    Não perca a oportunidade de transformar sua saúde<br>
+                    com meu acompanhamento profissional completo!
+                </p>
+                <a href="https://wa.me/5531991623223?text=Olá!%20Tenho%20interesse%20na%20consultoria%20completa!" class="cta-button">
+                    💬 QUERO COMEÇAR MINHA TRANSFORMAÇÃO
+                </a>
+                <p style="color: #666; margin-top: 20px;">
+                    Clique no botão acima e fale comigo no WhatsApp!
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💪 Invista na sua saúde comigo, profissional qualificado</p>
+            <p>Resultados que você pode ver e sentir!</p>
+        </div>
+    </div>
+</body>
+</html>
